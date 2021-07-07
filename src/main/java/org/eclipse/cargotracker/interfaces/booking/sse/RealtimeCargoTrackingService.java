@@ -33,6 +33,7 @@ public class RealtimeCargoTrackingService {
 
   @PostConstruct
   public void init() {
+    logger.info("Starting the initialization RealtimeCargoTrackingService");
     broadcaster = sse.newBroadcaster();
     logger.log(Level.FINEST, "SSE broadcaster created.");
   }

@@ -44,6 +44,7 @@ public class ExternalRoutingService implements RoutingService {
 
   @PostConstruct
   public void init() {
+    logger.info("Starting the initialization ExternalRoutingService");
     graphTraversalResource = ClientBuilder.newClient().target(graphTraversalUrl);
   }
 

@@ -125,6 +125,7 @@ public class EventLogger implements Serializable {
 
   @PostConstruct
   public void init() {
+    logger.info("Starting the initialization EventLogger");
     List<Cargo> cargos = cargoRepository.findAll();
 
     trackingIds = new ArrayList<>(cargos.size());

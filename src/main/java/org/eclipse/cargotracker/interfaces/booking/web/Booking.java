@@ -50,6 +50,7 @@ public class Booking implements Serializable {
 
   @PostConstruct
   public void init() {
+    logger.info("Starting the initialization Booking");
     today = LocalDate.now();
     locations = bookingServiceFacade.listShippingLocations();
   }

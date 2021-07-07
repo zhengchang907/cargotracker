@@ -1,5 +1,6 @@
 package org.eclipse.cargotracker.interfaces.booking.facade.internal;
 
+import javax.annotation.security.PermitAll;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -95,6 +96,7 @@ public class DefaultBookingServiceFacade implements BookingServiceFacade, Serial
   }
 
   @Override
+  @PermitAll
   public List<String> listAllTrackingIds() {
     List<String> trackingIds = new ArrayList<>();
     cargoRepository

@@ -41,6 +41,7 @@ public class SampleDataGenerator {
   @PostConstruct
   @TransactionAttribute(TransactionAttributeType.REQUIRED)
   public void loadSampleData() {
+    logger.info("Starting the initialization SampleDataGenerator");
     if (!isSampleLoaded()) {
       logger.info("Loading sample data.");
       loadSampleLocations();

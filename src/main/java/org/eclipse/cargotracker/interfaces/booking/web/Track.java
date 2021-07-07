@@ -3,7 +3,7 @@ package org.eclipse.cargotracker.interfaces.booking.web;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.eclipse.cargotracker.interfaces.booking.facade.BookingServiceFacade;
@@ -20,7 +20,7 @@ import org.eclipse.cargotracker.interfaces.booking.facade.dto.CargoStatus;
  * polarized ways to build user interfaces.
  */
 @Named("admin.track")
-@ViewScoped
+@SessionScoped
 public class Track implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -49,6 +49,7 @@ public class Track implements Serializable {
 
   @PostConstruct
   public void init() {
+    logger.info("Starting the initialization Track");
     trackingIds = bookingServiceFacade.listAllTrackingIds();
   }
 

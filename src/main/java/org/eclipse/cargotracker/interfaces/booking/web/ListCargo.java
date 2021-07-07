@@ -32,7 +32,9 @@ public class ListCargo {
 
   @PostConstruct
   public void init() {
-    List<CargoRoute> cargos = bookingServiceFacade.listAllCargos();
+    logger.info("Starting the initialization ListCargo");
+    List<CargoRoute> cargos
+     = bookingServiceFacade.listAllCargos();
     notRoutedCargos = cargos.stream().filter(route -> !route.isRouted()).collect(toList());
     routedUnclaimedCargos =
         cargos.stream().filter(route -> route.isRouted() && !route.isClaimed()).collect(toList());
