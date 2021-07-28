@@ -92,6 +92,9 @@
         "enableDNSConfiguration": {
             "value": false
         },
+        "enableCookieBasedAffinity":{
+            "value": true
+        },
         "identity": {
             "value": {
                 "type": "UserAssigned",
@@ -132,9 +135,6 @@
         },
         "servicePrincipal": {
             "value": "#servicePrincipal#"
-        },
-        "uploadAppPackage": {
-            "value": true
         },
         "wdtRuntimePassword": {
             "value": "#wdtRuntimePassword#"
