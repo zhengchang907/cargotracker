@@ -216,12 +216,6 @@ jobs:
                         s/#testbranchName#/${aksRepoBranchName}/g; \
                         s/#gitUserName#/${aksRepoUserName}/g" \
                         cargotracker/src/test/aks/parameters.json
-            - name: Archive parameter file
-              uses: actions/upload-artifact@v1
-              if: success()
-              with:
-                name: parameters.json
-                path: cargotracker/src/test/aks/parameters.json
             - name: Deploy WebLogic Server Cluster Domain offer
               id: deploy-wls-cluster
               uses: azure/CLI@v1
@@ -241,12 +235,6 @@ jobs:
                         s/#dbPassword#/'${dbPassword}'/g; \
                         s/#dbUser#/'${dbAdminUser}@${dbName}'/g" \
                         cargotracker/src/test/aks/cargo-tracker-db-jms.yaml
-            - name: Archive cargo-tracker-db-jms.yaml
-              uses: actions/upload-artifact@v1
-              if: success()
-              with:
-                name: cargo-tracker-db-jms.yaml
-                path: cargotracker/src/test/aks/cargo-tracker-db-jms.yaml
             - name: Install kubectl
               run: |
                 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"

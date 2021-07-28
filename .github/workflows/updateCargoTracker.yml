@@ -145,14 +145,6 @@ jobs:
                 echo "appGatewayURL=${appGatewayURL}" >> $GITHUB_ENV
             - name: Verify that the app is update
               run: |
-                # appURL=${{ env.appGatewayURL }}/cargo-tracker/
-                # result=$(./cargotracker/src/test/aks/checkWebPageContent.sh ${appURL} ${{ env.deployVersion }})
-                # if [ $result = Matched ];then
-                #   echo "The Cargo Tracker is updated with the latest version"
-                # else
-                #   echo "The Cargo Tracker is not correctly updated"
-                #   exit 1
-                # fi
                 # install dependencies
                 sudo apt-get install libegl1\
                       libopus0\
