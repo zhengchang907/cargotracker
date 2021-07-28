@@ -197,7 +197,7 @@ jobs:
                 inlineScript: |
                     echo "create resource group" ${{ env.resourceGroupForWlsAks }}
                     az group create --verbose --name ${{ env.resourceGroupForWlsAks }} --location ${{ env.location }}
-            - name: Checkout zhengchang907/cargotracker
+            - name: Checkout cargotracker
               uses: actions/checkout@v2
               with:
                 path: cargotracker

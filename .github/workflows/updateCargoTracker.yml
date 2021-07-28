@@ -65,7 +65,7 @@ jobs:
               id: azure-login
               with:
                 creds: ${{ env.azureCredentials }}
-            - name: Checkout zhengchang907/cargotracker
+            - name: Checkout cargotracker
               uses: actions/checkout@v2
               with:
                 path: cargotracker
@@ -97,7 +97,7 @@ jobs:
               with:
                 repository: galiacheng/arm-oraclelinux-wls-aks
                 path: arm-oraclelinux-wls-aks
-            - name: Build image and upload to ARC
+            - name: Build image and upload to ACR
               run: |
                 chmod ugo+x -R arm-oraclelinux-wls-aks/
                 cd arm-oraclelinux-wls-aks/src/main/arm/scripts
@@ -134,10 +134,6 @@ jobs:
                   podVersionStatus=$(./cargotracker/src/test/aks/checkPodsImage.sh ${{ github.event.inputs.wlsClusterNamespace }} ${{ env.acrImagePath }})
                   echo "Pod image version status: ${podVersionStatus}"
                 done
-                if [ podVersionStatus = notAllUpdated ]; then
-                  echo "image is not updated"
-                  exit 1
-                fi
             - name: Query Application Gateway URL
               run: |
                 appgatewayname=$(az resource list --resource-group ${{ github.event.inputs.resourceGroupForWlsAks }} --query "[?type=='Microsoft.Network/applicationGateways'].name|[0]" -o tsv)
