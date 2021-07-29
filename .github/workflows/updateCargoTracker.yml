@@ -101,7 +101,7 @@ jobs:
               run: |
                 chmod ugo+x -R arm-oraclelinux-wls-aks/
                 cd arm-oraclelinux-wls-aks/src/main/arm/scripts
-                ./buildWLSDockerImage.sh ${{ github.event.inputs.wlsImagePath }} ${{ github.event.inputs.azureACRServer }} ${{ github.event.inputs.azureACRUserName }} ${{ env.azureACRPassword }} ${{ env.imageTag }} ["${cargoTrackerBlobUrl}"] ${{ env.ocrSSOUser }} ${{ env.ocrSSOPSW }} ${{ github.event.inputs.wlsClusterSize }}
+                ./buildWLSDockerImage.sh ${{ github.event.inputs.wlsImagePath }} ${{ github.event.inputs.azureACRServer }} ${{ github.event.inputs.azureACRUserName }} ${{ env.azureACRPassword }} ${{ env.imageTag }} ["${cargoTrackerBlobUrl}"] ${{ env.ocrSSOUser }} ${{ env.ocrSSOPSW }} ${{ github.event.inputs.wlsClusterSize }} false
             - name: Connect to AKS cluster
               run: |
                 echo "connect to cluster"
